@@ -19,7 +19,7 @@ export default props => {
         },
         selectEmpty: {
             marginTop: theme.spacing(2),
-        },
+        }
     }));
 
     const classes = useStyles();
@@ -39,7 +39,10 @@ export default props => {
             ...oldValues,
             [event.target.name]: event.target.value,
         }));
-        console.log(132);
+
+        if (event.target.value !== '' && event.target.value !== null && event.target.value !== undefined) {
+            props.isUpdate(event.target.value, props.idClicked, props.responsibleId);
+        }
     }
 
     return(
@@ -51,6 +54,7 @@ export default props => {
                 value={values.score}
                 onChange={handleChange}
                 input={<OutlinedInput labelWidth={labelWidth} name="score" id="outlined-age-simple" />}
+                disabled={props.isDisabled}
             >
                 <MenuItem value=""><em>Нет</em></MenuItem>
                 <MenuItem value={1}>1</MenuItem>

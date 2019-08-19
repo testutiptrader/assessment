@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
-import Input from "../UI/Input/Input";
+import Select from "../UI/Select/Select";
 
 export default () => {
     const [issues, setIssues] = useState([
@@ -48,19 +48,19 @@ export default () => {
                                 id: 0,
                                 name: 'Сергей Дружинин',
                                 assessment: 0,
-                                completed: 0
+                                completed: false
                             },
                             {
                                 id: 1,
                                 name: 'Никита Абрамов',
                                 assessment: 0,
-                                completed: 0
+                                completed: false
                             },
                             {
                                 id: 2,
                                 name: 'Игорь Чунарев',
                                 assessment: 0,
-                                completed: 0
+                                completed: false
                             }
                         ],
                         average: 0
@@ -72,7 +72,27 @@ export default () => {
 
         getProjects();
     }, []);
-console.log(issues)
+
+    function updateState(value, issueId, responsibleId) {
+        setIssues(issues.filter(issue => {
+            if (issue.id === issueId) {
+                issue.assessments[responsibleId].assessment = value;
+                issue.assessments[responsibleId].completed = true;
+            }
+            return issue;
+        }));
+        console.log(issues);
+    }
+
+    function getClick(issueId, responsibleId) {
+        setIssues(issues.filter(issue => {
+            if (issue.id === issueId) {
+                issue.assessments[responsibleId].completed = !issue.assessments[responsibleId].completed;
+            }
+            return issue;
+        }));
+    }
+    
     return (
         <div>
             <h1>Задачи</h1>
@@ -101,7 +121,6 @@ console.log(issues)
                     <TableBody>
                         {
                             issues.map((item, index) => {
-                                const indexItem = index;
                                 return (
                                     <TableRow key={index}>
                                         <TableCell align="right">
@@ -129,22 +148,14 @@ console.log(issues)
                                                                 <TableCell
                                                                     key={key}
                                                                     align="center"
-                                                                    onChange={e => {
-                                                                        // setIssues(issues.filter(issue => {
-                                                                        //     if (issue.id === indexItem) {
-                                                                        //         return (
-                                                                        //             issue.assessments[key].completed = 1,
-                                                                        //             issue.assessments[key].assessment = Number(e.target.value),
-                                                                        //             issue.average = issue.assessments[key].assessment
-                                                                        //         );
-                                                                        //     } else {
-                                                                        //         return issue;
-                                                                        //     }
-                                                                        // }));
-                                                                        console.log(value);
-                                                                    }}
+                                                                    onClick={getClick.bind(null, index, key)}
                                                                 >
-                                                                    <Input isDisabled={issues[index].assessments[0].completed}/>
+                                                                    <Select
+                                                                        isDisabled={issues[index].assessments[key].completed}
+                                                                        isUpdate={updateState}
+                                                                        idClicked={index}
+                                                                        responsibleId={key}
+                                                                    />
                                                                 </TableCell>
                                                             );
                                                         })
