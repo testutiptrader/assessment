@@ -5,7 +5,8 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import Button from "@material-ui/core/Button";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {detailsProjects} from "../Milestones/Milestones";
 
 export default () => {
     const [projects, setProjects] = useState([]);
@@ -17,8 +18,8 @@ export default () => {
         getProjects();
     }, []);
 
-    function projectDetailsHandler(name ) {
-        console.log(name);
+    function projectDetailsHandler(id) {
+        detailsProjects(id);
     }
 
     return (
@@ -30,11 +31,10 @@ export default () => {
                         return (
                             <Link
                                 to='/milestone'
-
                                 key={index}
                             >
                                 <Button
-                                    onClick={() => projectDetailsHandler(item.name)}
+                                    onClick={() => projectDetailsHandler(item.id)}
                                 >
                                     <Card className='card'>
                                         <div className='cardItem'>
