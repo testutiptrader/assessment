@@ -1,0 +1,49 @@
+a {
+    text-decoration: underline;
+}
+
+.opened {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #8bff70;
+    border: 2px solid #729f13;
+    border-radius: 50%;
+}
+
+.closed {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ff6779;
+    border: 2px solid #cb3747;
+    border-radius: 50%;
+}
+
+.root {
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.table {
+    min-width: 650px;
+}
+
+.right {
+    position: relative;
+}
+
+.edit {
+    cursor: pointer;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    position: absolute;
+    right: 0;
+}
+
+.textField {
+    max-width: 20px;
+}

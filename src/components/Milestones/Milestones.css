@@ -1,0 +1,23 @@
+.title {
+    font-size: 20px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    width: 354px;
+    margin: 5px;
+    height: 150px;
+    display: block !important;
+}
+
+.cardItem {
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #292929;
+}
