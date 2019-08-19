@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 import axios from '../../axios/axios-assesment';
 import Milestones from "../Milestones/Milestones";
-import Projects from "../Issues/Issues";
+import Project from "../Projects/Project";
 
 export default () => {
     const [data, setData] = useState({
@@ -85,7 +85,7 @@ export default () => {
                 justify="center"
                 alignItems="center"
             >
-                <Projects />
+                <Project />
             </Grid>
         );
     }

@@ -22,38 +22,36 @@ export default () => {
     }
 
     return (
-        <Router>
-            <div>
-                <h1>Список проектов</h1>
-                <Grid container  item xs={12}>
-                    {
-                        projects.map((item, index) => {
-                            return (
-                                <Link
-                                    to='/projects'
-                                    onClick={event => event.preventDefault()}
-                                    key={index}
+        <div>
+            <h1>Список проектов</h1>
+            <Grid container  item xs={12}>
+                {
+                    projects.map((item, index) => {
+                        return (
+                            <a
+                                to='/projects'
+                                onClick={event => event.preventDefault()}
+                                key={index}
+                            >
+                                <Button
+                                    onClick={() => projectDetailsHandler(item.name)}
                                 >
-                                    <Button
-                                        onClick={() => projectDetailsHandler(item.name)}
-                                    >
-                                        <Card className='card'>
-                                            <div className='cardItem'>
-                                                <Typography
-                                                    className='title'
-                                                    gutterBottom
-                                                >
-                                                    {item.name}
-                                                </Typography>
-                                            </div>
-                                        </Card>
-                                    </Button>
-                                </Link>
-                            )
-                        })
-                    }
-                </Grid>
-            </div>
-        </Router>
+                                    <Card className='card'>
+                                        <div className='cardItem'>
+                                            <Typography
+                                                className='title'
+                                                gutterBottom
+                                            >
+                                                {item.name}
+                                            </Typography>
+                                        </div>
+                                    </Card>
+                                </Button>
+                            </a>
+                        )
+                    })
+                }
+            </Grid>
+        </div>
     );
 }
