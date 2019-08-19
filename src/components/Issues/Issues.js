@@ -79,9 +79,13 @@ export default () => {
                 issue.assessments[responsibleId].assessment = value;
                 issue.assessments[responsibleId].completed = true;
             }
+            let count = 0;
+            for (let i = 0; i < issue.assessments.length; i++) {
+                count += issue.assessments[i].assessment;
+            }
+            issue.average = Math.round(count / issue.assessments.length);
             return issue;
         }));
-        console.log(issues);
     }
 
     function getClick(issueId, responsibleId) {
@@ -92,7 +96,7 @@ export default () => {
             return issue;
         }));
     }
-    
+
     return (
         <div>
             <h1>Задачи</h1>
@@ -163,7 +167,11 @@ export default () => {
                                                 }
                                             })
                                         }
-                                        <TableCell align="center"></TableCell>
+                                        <TableCell align="center">
+                                            {
+                                                issues[index].average
+                                            }
+                                        </TableCell>
                                     </TableRow>
                                 )
                             })

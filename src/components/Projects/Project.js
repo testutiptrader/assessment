@@ -12,13 +12,12 @@ export default () => {
     useEffect(() => {
         async function getProjects () {
             const response = await  axios.get('http://gitlab.utip.org/api/v4/projects?private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=10000');
-            console.log(response.data);
             setProjects(response.data);
         };
         getProjects();
     }, []);
 
-    function projectDetailsHandler(name, ) {
+    function projectDetailsHandler(name ) {
         console.log(name);
     }
 
