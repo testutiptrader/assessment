@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
-import {detailsProjects} from "../Milestones/Milestones";
 
 export default () => {
     const [projects, setProjects] = useState([]);
@@ -18,10 +17,6 @@ export default () => {
         getProjects();
     }, []);
 
-    function projectDetailsHandler(id) {
-        detailsProjects(id);
-    }
-
     return (
         <div>
             <h1>Список проектов</h1>
@@ -30,12 +25,10 @@ export default () => {
                     projects.map((item, index) => {
                         return (
                             <Link
-                                to='/milestone'
+                                to={'/milestone/project_id/' + item.id + '/' + item.name}
                                 key={index}
                             >
-                                <Button
-                                    onClick={() => projectDetailsHandler(item.id)}
-                                >
+                                <Button>
                                     <Card className='card'>
                                         <div className='cardItem'>
                                             <Typography

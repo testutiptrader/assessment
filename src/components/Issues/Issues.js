@@ -10,16 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
 import Select from "../UI/Select/Select";
 
-let milestoneID = '',
-    projectID = '';
-
-export function detailsMilestone(milestoneId, projectId) {
-    milestoneID = milestoneId;
-    projectID = projectId;
-}
-
-
-export default () => {
+export default props => {
     const [issues, setIssues] = useState([
         {
             id: '',
@@ -41,7 +32,7 @@ export default () => {
 
     useEffect(() => {
         async function getProjects () {
-            const response = await  axios.get(`http://gitlab.utip.org/api/v4/projects/${projectID}/issues?milestone=${milestoneID}&private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=100`);
+            const response = await  axios.get(`http://gitlab.utip.org/api/v4/projects/${props.match.params.project_id}/issues?milestone=${props.match.params.milestone_id}&private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=100`);
             let issue = [];
             response.data.map((item, index) => {
                 issue.push(

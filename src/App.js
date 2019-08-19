@@ -13,8 +13,8 @@ function App() {
             <Switch>
                 <Route exact path='/' component={Auth}/>
                 {/*<Route path='/project' component={Milestones}/>*/}
-                <Route path='/milestone' component={Milestones}/>
-                <Route path='/issues' component={Issues}/>
+                <Route path='/milestone/project_id/:project_id/:project_name' component={Milestones}/>
+                <Route path='/issues/project_id/:project_id/milestone/:milestone_id' component={Issues}/>
             </Switch>
             {/*<GitLab/>*/}
             {/*<Auth/>*/}
