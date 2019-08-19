@@ -28,9 +28,9 @@ export default () => {
                 {
                     projects.map((item, index) => {
                         return (
-                            <a
-                                to='/projects'
-                                onClick={event => event.preventDefault()}
+                            <Link
+                                to='/milestone'
+
                                 key={index}
                             >
                                 <Button
@@ -47,7 +47,7 @@ export default () => {
                                         </div>
                                     </Card>
                                 </Button>
-                            </a>
+                            </Link>
                         )
                     })
                 }
