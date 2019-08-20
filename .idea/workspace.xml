@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4e05b7ce-ddcf-492c-ba67-26910c488494" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Issues/Issues.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Issues/Issues.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Issues/Issues.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Issues/Issues.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Milestones/Milestones.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Milestones/Milestones.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Milestones/Milestones.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Milestones/Milestones.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Projects/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project.js" afterDir="false" />
     </list>
@@ -94,6 +97,7 @@
       <workItem from="1565676963554" duration="100204000" />
       <workItem from="1566182167576" duration="11459000" />
       <workItem from="1566201068289" duration="17427000" />
+      <workItem from="1566269039552" duration="3484000" />
     </task>
     <servers />
   </component>
@@ -105,7 +109,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

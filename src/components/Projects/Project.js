@@ -7,7 +7,7 @@ import axios from 'axios';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 
-export default () => {
+export default props => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         async function getProjects () {

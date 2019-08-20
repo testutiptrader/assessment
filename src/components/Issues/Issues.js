@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Tooltip from '@material-ui/core/Tooltip';
 import Select from "../UI/Select/Select";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Button from "@material-ui/core/Button";
 
 export default props => {
     const [issues, setIssues] = useState([
@@ -99,6 +101,12 @@ export default props => {
 
     return (
         <div>
+            <Button
+                className='goBack'
+                onClick={() => props.history.goBack()}
+            >
+                <ArrowBackIcon />
+            </Button>
             <h1>Задачи</h1>
             <Paper className='root'>
                 <Table className='table'>

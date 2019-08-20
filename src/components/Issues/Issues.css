@@ -47,3 +47,10 @@ a {
 .textField {
     max-width: 20px;
 }
+
+.goBack {
+    display: block !important;
+    position: fixed !important;
+    top: 20px;
+    padding-top: 10px !important;
+}

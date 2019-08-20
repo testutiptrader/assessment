@@ -21,3 +21,9 @@ a {
     text-decoration: none;
     color: #292929;
 }
+
+.goBack {
+    display: block !important;
+    position: fixed !important;
+    top: 15px;
+}
