@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import  './Auth.css';
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
-import axios from '../../axios/axios-assesment';
+import axios from 'axios';
 import Milestones from "../Milestones/Milestones";
 import Project from "../Projects/Project";
 
@@ -25,15 +25,16 @@ export default () => {
     });
     async function loginHandler(event)  {
         event.preventDefault();
-        const user = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCc9BX2VeWs1WOnMNJrxgRw1tMlW6sA7bs', data);
-        await setData({
-            ...data,
-            user: user.data
-        });
         localStorage.setItem('refreshToken', true);
+        // const user = await axios.post('', data);
+        // await setData({
+        //     ...data,
+        //     user: user.data
+        // });
+        // localStorage.setItem('refreshToken', true);
     }
 
-    if (!data.user.registered && !localStorage.getItem('refreshToken')) {
+    /*
         return(
             <div className='Auth'>
                 <h1>Авторизация</h1>
@@ -69,7 +70,7 @@ export default () => {
                             variant="outlined"
                             color="primary"
                             className='btnAuth'
-                            onClick={loginHandler.bind(this)}
+                            onClick={loginHandler}
                         >
                             Войти
                         </Button>
@@ -77,7 +78,7 @@ export default () => {
                 </Grid>
             </div>
         );
-    } else {
+    * */
         return (
             <Grid
                 container
@@ -88,6 +89,6 @@ export default () => {
                 <Project />
             </Grid>
         );
-    }
+
 
 };

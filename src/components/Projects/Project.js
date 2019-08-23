@@ -11,8 +11,8 @@ export default props => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         async function getProjects () {
-            const response = await  axios.get('http://gitlab.utip.org/api/v4/projects?private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=10000');
-            setProjects(response.data);
+            const resultGetProject = await axios.post('http://localhost:5000/api/getUpdate/', {key: 'project'});
+            setProjects(resultGetProject.data);
         };
         getProjects();
     }, []);
@@ -25,7 +25,7 @@ export default props => {
                     projects.map((item, index) => {
                         return (
                             <Link
-                                to={'/milestone/project_id/' + item.id + '/' + item.name}
+                                to={'/milestone/project_id/' + item.project_id + '/' + item.name}
                                 key={index}
                             >
                                 <Button>

@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e05b7ce-ddcf-492c-ba67-26910c488494" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Issues/Issues.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Issues/Issues.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios/axios-assesment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Issues/Issues.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Issues/Issues.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Milestones/Milestones.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Milestones/Milestones.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Milestones/Milestones.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Milestones/Milestones.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Projects/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -97,7 +97,14 @@
       <workItem from="1565676963554" duration="100204000" />
       <workItem from="1566182167576" duration="11459000" />
       <workItem from="1566201068289" duration="17427000" />
-      <workItem from="1566269039552" duration="3484000" />
+      <workItem from="1566269039552" duration="10777000" />
+      <workItem from="1566302943638" duration="1841000" />
+      <workItem from="1566387147439" duration="20000" />
+      <workItem from="1566448761331" duration="11846000" />
+      <workItem from="1566462613627" duration="48000" />
+      <workItem from="1566465246538" duration="13332000" />
+      <workItem from="1566529353439" duration="51000" />
+      <workItem from="1566529420477" duration="16109000" />
     </task>
     <servers />
   </component>

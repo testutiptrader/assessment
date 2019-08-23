@@ -36,38 +36,40 @@ export default props => {
         async function getProjects () {
             const response = await  axios.get(`http://gitlab.utip.org/api/v4/projects/${props.match.params.project_id}/issues?milestone=${props.match.params.milestone_id}&private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=100`);
             let issue = [];
+            console.log(response);
             response.data.map((item, index) => {
-                issue.push(
-                    {
-                        id: index,
-                        status: item.state,
-                        nameIssue: item.title,
-                        responsible: item.assignee !== null ? item.assignee.name : '-',
-                        milestone: item.milestone.title,
-                        url: item.web_url,
-                        assessments: [
-                            {
-                                id: 0,
-                                name: 'Сергей Дружинин',
-                                assessment: 0,
-                                completed: false
-                            },
-                            {
-                                id: 1,
-                                name: 'Никита Абрамов',
-                                assessment: 0,
-                                completed: false
-                            },
-                            {
-                                id: 2,
-                                name: 'Игорь Чунарев',
-                                assessment: 0,
-                                completed: false
-                            }
-                        ],
-                        average: 0
-                    }
-                );
+                issue[item.iid] = {
+                    id: item.iid,
+                    status: item.state,
+                    nameIssue: item.title,
+                    responsible: item.assignee !== null ? item.assignee.name : '-',
+                    milestone: item.milestone.title,
+                    url: item.web_url,
+                    assessments: [
+                        {
+                            id: 0,
+                            name: 'Сергей Дружинин',
+                            assessment: 0,
+                            completed: false
+                        },
+                        {
+                            id: 1,
+                            name: 'Никита Абрамов',
+                            assessment: 0,
+                            completed: false
+                        },
+                        {
+                            id: 2,
+                            name: 'Игорь Чунарев',
+                            assessment: 0,
+                            completed: false
+                        }
+                    ],
+                    average: 0
+                };
+                // issue.push(
+                //
+                // );
             });
             setIssues(issue);
         };
@@ -75,7 +77,7 @@ export default props => {
         getProjects();
     }, []);
 
-    function updateState(value, issueId, responsibleId) {
+    async function updateState(value, issueId, responsibleId) {
         setIssues(issues.filter(issue => {
             if (issue.id === issueId) {
                 issue.assessments[responsibleId].assessment = value;
@@ -99,6 +101,7 @@ export default props => {
         }));
     }
 
+let sss = 0;
     return (
         <div>
             <Button
@@ -118,7 +121,8 @@ export default props => {
                             <TableCell align="right">Milestone</TableCell>
                             {
                                 issues.map((item, index) => {
-                                    if (index === 0) {
+                                    if (sss < 1) {
+                                        sss++;
                                         return (
                                             item.assessments.map((value, key) => {
                                                 return (<TableCell key={key} align="center">Оценил {value.name}</TableCell>);
@@ -153,7 +157,7 @@ export default props => {
                                         <TableCell align="right">{item.milestone}</TableCell>
                                         {
                                             issues.map((itemValue, itemKey) => {
-                                                if (itemKey === 0) {
+                                                if (index === itemValue.id) {
                                                     return (
                                                         itemValue.assessments.map((value, key) => {
                                                             return (
