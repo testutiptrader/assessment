@@ -11,7 +11,7 @@ export default props => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         async function getProjects () {
-            const resultGetProject = await axios.post('http://localhost:5000/api/getUpdate/', {key: 'project'});
+            const resultGetProject = await axios.get('http://assessment.git/api/getUpdate/project');
             setProjects(resultGetProject.data);
         };
         getProjects();

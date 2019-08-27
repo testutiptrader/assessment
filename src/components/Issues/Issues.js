@@ -13,9 +13,11 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from "@material-ui/core/Button";
 
 export default props => {
+    let flag = 0;
     const [issues, setIssues] = useState([
         {
             id: '',
+            iid: '',
             status: '',
             nameIssue: '',
             responsible: '',
@@ -34,12 +36,13 @@ export default props => {
 
     useEffect(() => {
         async function getProjects () {
-            const response = await  axios.get(`http://gitlab.utip.org/api/v4/projects/${props.match.params.project_id}/issues?milestone=${props.match.params.milestone_id}&private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=100`);
+            const response = await axios.get(`http://assessment.git/api/getTask/project/${props.match.params.project_id}/milestone/${props.match.params.milestone_id}`);
             let issue = [];
-            console.log(response);
             response.data.map((item, index) => {
-                issue[item.iid] = {
-                    id: item.iid,
+                console.log(item);
+                issue.push({
+                    id: index,
+                    iid: item.iid,
                     status: item.state,
                     nameIssue: item.title,
                     responsible: item.assignee !== null ? item.assignee.name : '-',
@@ -66,19 +69,18 @@ export default props => {
                         }
                     ],
                     average: 0
-                };
-                // issue.push(
-                //
-                // );
+                });
+
             });
             setIssues(issue);
         };
-
         getProjects();
+
     }, []);
 
     async function updateState(value, issueId, responsibleId) {
         setIssues(issues.filter(issue => {
+            console.log(issue);
             if (issue.id === issueId) {
                 issue.assessments[responsibleId].assessment = value;
                 issue.assessments[responsibleId].completed = true;
@@ -90,6 +92,13 @@ export default props => {
             issue.average = Math.round(count / issue.assessments.length);
             return issue;
         }));
+        const params = new URLSearchParams();
+        params.append('title', issues[issueId].nameIssue);
+        // params.append('title', issues[issueId].nameIssue + ' (Вес: ' + issues[issueId].average + ')');
+        params.append('average', issues[issueId].average);
+        params.append('task', issues[issueId].iid);
+        params.append('assessment', issues[issueId].assessments[responsibleId].assessment);
+        axios.post('http://assessment.git/api/updateTask/project/' + props.match.params.project_id, params);
     }
 
     function getClick(issueId, responsibleId) {
@@ -101,7 +110,6 @@ export default props => {
         }));
     }
 
-let sss = 0;
     return (
         <div>
             <Button
@@ -121,8 +129,8 @@ let sss = 0;
                             <TableCell align="right">Milestone</TableCell>
                             {
                                 issues.map((item, index) => {
-                                    if (sss < 1) {
-                                        sss++;
+                                    if (flag < 1) {
+                                        flag++;
                                         return (
                                             item.assessments.map((value, key) => {
                                                 return (<TableCell key={key} align="center">Оценил {value.name}</TableCell>);

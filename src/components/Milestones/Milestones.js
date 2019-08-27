@@ -12,7 +12,7 @@ export default props => {
     const [project, setProject] = useState([]);
     useEffect(() => {
         async function getProjects () {
-            const response = await  axios.get(`http://gitlab.utip.org/api/v4/projects/${props.match.params.project_id}/milestones?state=active&private_token=Fq7oP-fUhnaSSqVjRz3b&page=1&per_page=10000`);
+            const response = await  axios.get(`http://assessment.git/api/getMilestone/project/${props.match.params.project_id}`);
             setProject(response.data);
         };
         getProjects();
