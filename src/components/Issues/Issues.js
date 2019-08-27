@@ -80,7 +80,6 @@ export default props => {
 
     async function updateState(value, issueId, responsibleId) {
         setIssues(issues.filter(issue => {
-            console.log(issue);
             if (issue.id === issueId) {
                 issue.assessments[responsibleId].assessment = value;
                 issue.assessments[responsibleId].completed = true;
